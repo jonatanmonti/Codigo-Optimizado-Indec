@@ -404,9 +404,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 13) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
-                        //dataGridView1.Rows.Add();
-
                         break;
 
                     }
@@ -419,7 +416,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 27) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -431,7 +427,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 40) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -446,7 +441,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 17) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -458,7 +452,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 40) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -470,7 +463,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 46) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -485,7 +477,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 20) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -497,7 +488,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 21) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }
@@ -511,7 +501,6 @@ namespace Codigo_Optimizado_Indec
                     if (++rt.NumeroLinea == 24) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
-
                         break;
                     }
                 }

@@ -300,7 +300,7 @@ namespace Codigo_Optimizado_Indec
                 case 2: //cuadro 5
                     switch (rt.NumeroLinea)
                     {
-                        case 17:
+                        case 16:
                             if (EleccionObra == 1)
                             {
                                 RestoDeLosCuadros(0.24, 16, 15, EItems.Mano_de_Obra);
@@ -314,7 +314,7 @@ namespace Codigo_Optimizado_Indec
                                 RestoDeLosCuadros(0.30, 16, 15, EItems.Mano_de_Obra);
                             }
                             break;
-                        case 40:
+                        case 39:
                             if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
                             {
                                 RestoDeLosCuadros(0.08, 16, 15, EItems.Gasto_General);
@@ -324,7 +324,7 @@ namespace Codigo_Optimizado_Indec
                                 RestoDeLosCuadros(0.15, 16, 15, EItems.Gasto_General);
                             }
                             break;
-                        case 46:
+                        case 45:
                             if (EleccionObra == 1)
                             {
                                 RestoDeLosCuadros(0.30, 16, 15, EItems.Hormigon);
@@ -438,7 +438,7 @@ namespace Codigo_Optimizado_Indec
                 {
                     rt.Linea = LeerLineas.ReadLine();
                     
-                    if (++rt.NumeroLinea == 17) //if para obtener la linea especifica dentro del archivo de texto
+                    if (++rt.NumeroLinea == 16) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
                         break;
@@ -449,7 +449,7 @@ namespace Codigo_Optimizado_Indec
                 {
                     rt.Linea = LeerLineas.ReadLine();
                     
-                    if (++rt.NumeroLinea == 40) //if para obtener la linea especifica dentro del archivo de texto
+                    if (++rt.NumeroLinea == 39) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
                         break;
@@ -460,7 +460,7 @@ namespace Codigo_Optimizado_Indec
                 {
                     rt.Linea = LeerLineas.ReadLine();
                     
-                    if (++rt.NumeroLinea == 46) //if para obtener la linea especifica dentro del archivo de texto
+                    if (++rt.NumeroLinea == 45) //if para obtener la linea especifica dentro del archivo de texto
                     {
                         Parsear(); //funcion para parsear los archivos de texto
                         break;

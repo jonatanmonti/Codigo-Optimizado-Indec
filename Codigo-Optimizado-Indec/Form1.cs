@@ -50,12 +50,25 @@ namespace Codigo_Optimizado_Indec
         {
             r.ObtenerRuta(); //funcion para obtener la ruta
 
-            textBoxRuta.Text = r.RutaArchivo; //guardamos la direccion de la ruta en el textbox
+            if (!string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
+            {
+                textBoxRuta.Text = r.RutaArchivo; //guardamos la direccion de la ruta en el textbox
 
-            buttonPrimeraPagina.Enabled = true;
-
+                buttonPrimeraPagina.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("No selecciono ningun archivo!!!!");
+            }
         }
 
+        public void CuadroGuardar(string CuadroGuardar)
+        {
+            rt.GuardarArchivoTXT(); //funcion para guardar el archivo de texto
+            buttonContinuar.Enabled = true;
+            buttontxt.Text = CuadroGuardar;
+            buttontxt.Enabled = false;
+        }
 
         private void buttontxt_Click(object sender, EventArgs e)
         {
@@ -63,27 +76,16 @@ namespace Codigo_Optimizado_Indec
             switch (contador)
             {
                 case 0:
-                    rt.GuardarArchivoTXT(); //funcion para guardar el archivo de texto
-                    buttonContinuar.Enabled = true;
-                    buttontxt.Text = "Cuadro 5 guardar txt";
-                    buttontxt.Enabled = false;
+                    CuadroGuardar("Cuadro 5 guardar txt");
                     break;
                 case 1:
-                    rt.GuardarArchivoTXT(); //funcion para guardar el archivo de texto
-                    buttonContinuar.Enabled = true;
-                    buttontxt.Text = "Cuadro 4 guardar txt";
-                    buttontxt.Enabled = false;
+                    CuadroGuardar("Cuadro 4 guardar txt");
                     break;
                 case 2:
-                    rt.GuardarArchivoTXT(); //funcion para guardar el archivo de texto
-                    buttonContinuar.Enabled = true;
-                    buttontxt.Text = "Cuadro 3 guardar txt";
-                    buttontxt.Enabled = false;
+                    CuadroGuardar("Cuadro 3 guardar txt");
                     break;
                 case 3:
-                    rt.GuardarArchivoTXT(); //funcion para guardar el archivo de texto
-                    buttonContinuar.Enabled = true;
-                    buttontxt.Enabled = false;
+                    CuadroGuardar("Cuadro 3 guardar txt");
                 break;
             }
         }
@@ -112,99 +114,101 @@ namespace Codigo_Optimizado_Indec
             file.Dispose();
         }
 
+        public void CuadroCrearTxt(string CuadroCrear, bool VerdaderoFalso)
+        {
+            FuncionBotonContinuar(); //funcion para obtener el contenido del pdf y escribirlo en archivos txt
+            buttonContinuar.Text = CuadroCrear;
+            buttonContinuar.Enabled = false;
+            contador++;
+            buttonPrimeraPagina.Enabled = VerdaderoFalso;
+        }
+
         private void buttonContinuar_Click(object sender, EventArgs e)
         {
 
             switch (contador)
             {
                 case 0:
-                    FuncionBotonContinuar(); //funcion para obtener el contenido del pdf y escribirlo en archivos txt
-                    buttonContinuar.Text = "Cuadro 5 crear txt";
-                    buttonContinuar.Enabled = false;
-                    contador++;
-                    buttonPrimeraPagina.Enabled = true;
+                    CuadroCrearTxt("Cuadro 5 crear txt", true);
                     break;
                 case 1:
-                    FuncionBotonContinuar(); //funcion para obtener el contenido del pdf y escribirlo en archivos txt
-                    buttonContinuar.Text = "Cuadro 4 crear txt";
-                    buttonContinuar.Enabled = false;
-                    contador++;
-                    buttonPrimeraPagina.Enabled = true;
+                    CuadroCrearTxt("Cuadro 4 crear txt", true);
                     break;
                 case 2:
-                    FuncionBotonContinuar(); //funcion para obtener el contenido del pdf y escribirlo en archivos txt
-                    buttonContinuar.Text = "Cuadro 3 crear txt";
-                    buttonContinuar.Enabled = false;
-                    contador++;
-                    buttonPrimeraPagina.Enabled = true;
+                    CuadroCrearTxt("Cuadro 3 crear txt", true);
                     break;
                 case 3:
-                    FuncionBotonContinuar(); //funcion para obtener el contenido del pdf y escribirlo en archivos txt
-                    buttonContinuar.Enabled = false;
-                    buttonPrimeraPagina.Enabled = false;
+                    CuadroCrearTxt("Cuadro 3 crear txt", false);
                 break;
             }
+        }
+
+        public void CuadroInicio(string CuadroInicio)
+        {
+            r.PrimeraPagina = int.Parse(maskedTextBoxPrimeraPagina.Text); //le pedimos al usuario la pagina donde inicia el cuadro
+            buttonUltimaPagina.Enabled = true;
+            buttonPrimeraPagina.Text = CuadroInicio;
+            buttonPrimeraPagina.Enabled = false;
         }
 
         private void buttonPrimeraPagina_Click(object sender, EventArgs e)
         {
-
-            switch (contador)
+            if (!string.IsNullOrWhiteSpace(maskedTextBoxPrimeraPagina.Text))
             {
-                case 0:
-                    r.PrimeraPagina = int.Parse(maskedTextBoxPrimeraPagina.Text); //le pedimos al usuario la pagina donde inicia el cuadro
-                    buttonUltimaPagina.Enabled = true;
-                    buttonPrimeraPagina.Text = "Cuadro 5 Inicio";
-                    buttonPrimeraPagina.Enabled = false;
-                    break;
-                case 1:
-                    r.PrimeraPagina = int.Parse(maskedTextBoxPrimeraPagina.Text); //le pedimos al usuario la pagina donde inicia el cuadro
-                    buttonUltimaPagina.Enabled = true;
-                    buttonPrimeraPagina.Text = "Cuadro 4 Inicio";
-                    buttonPrimeraPagina.Enabled = false;
-                    break;
-                case 2:
-                    r.PrimeraPagina = int.Parse(maskedTextBoxPrimeraPagina.Text); //le pedimos al usuario la pagina donde inicia el cuadro
-                    buttonUltimaPagina.Enabled = true;
-                    buttonPrimeraPagina.Text = "Cuadro 3 Inicio";
-                    buttonPrimeraPagina.Enabled = false;
-                    break;
-                case 3:
-                    r.PrimeraPagina = int.Parse(maskedTextBoxPrimeraPagina.Text); //le pedimos al usuario la pagina donde inicia el cuadro
-                    buttonUltimaPagina.Enabled = true;
-                    buttonPrimeraPagina.Enabled = false;
-                break;
+                switch (contador)
+                {
+                    case 0:
+                        CuadroInicio("Cuadro 5 Inicio");
+                        break;
+                    case 1:
+                        CuadroInicio("Cuadro 4 Inicio");
+                        break;
+                    case 2:
+                        CuadroInicio("Cuadro 3 Inicio");
+                        break;
+                    case 3:
+                        CuadroInicio("Cuadro 3 Inicio");
+                        break;
+                }
             }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor!!!!");
+            }
+            
+        }
+
+        public void CuadroFin(string CuadroFin)
+        {
+            r.UltimaPagina = int.Parse(maskedTextBoxUltimaPagina.Text); //le pedimos al usuario la pagina donde finaliza el cuadro
+            buttontxt.Enabled = true;
+            buttonUltimaPagina.Text = CuadroFin;
+            buttonUltimaPagina.Enabled = false;
         }
 
         private void buttonUltimaPagina_Click(object sender, EventArgs e)
         {
-
-            switch (contador)
+            if (!string.IsNullOrWhiteSpace(maskedTextBoxUltimaPagina.Text))
             {
-                case 0:
-                    r.UltimaPagina = int.Parse(maskedTextBoxUltimaPagina.Text); //le pedimos al usuario la pagina donde finaliza el cuadro
-                    buttontxt.Enabled = true;
-                    buttonUltimaPagina.Text = "Cuadro 5 Fin";
-                    buttonUltimaPagina.Enabled = false;
-                    break;
-                case 1:
-                    r.UltimaPagina = int.Parse(maskedTextBoxUltimaPagina.Text); //le pedimos al usuario la pagina donde finaliza el cuadro
-                    buttontxt.Enabled = true;
-                    buttonUltimaPagina.Text = "Cuadro 4 Fin";
-                    buttonUltimaPagina.Enabled = false;
-                    break;
-                case 2:
-                    r.UltimaPagina = int.Parse(maskedTextBoxUltimaPagina.Text); //le pedimos al usuario la pagina donde finaliza el cuadro
-                    buttontxt.Enabled = true;
-                    buttonUltimaPagina.Text = "Cuadro 3 Fin";
-                    buttonUltimaPagina.Enabled = false;
-                    break;
-                case 3:
-                    r.UltimaPagina = int.Parse(maskedTextBoxUltimaPagina.Text); //le pedimos al usuario la pagina donde finaliza el cuadro
-                    buttontxt.Enabled = true;
-                    buttonUltimaPagina.Enabled = false;
-                break;
+                switch (contador)
+                {
+                    case 0:
+                        CuadroFin("Cuadro 5 Fin");
+                        break;
+                    case 1:
+                        CuadroFin("Cuadro 4 Fin");
+                        break;
+                    case 2:
+                        CuadroFin("Cuadro 3 Fin");
+                        break;
+                    case 3:
+                        CuadroFin("Cuadro 3 Fin");
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor!!!!");
             }
         }
 
@@ -384,6 +388,24 @@ namespace Codigo_Optimizado_Indec
             }
         }
 
+        StreamReader LeerLineas;
+
+        public void RecorrerLinea(int NumeroDeLinea)
+        {
+
+            while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
+            {
+                rt.Linea = LeerLineas.ReadLine();
+
+                if (++rt.NumeroLinea == NumeroDeLinea) //if para obtener la linea especifica dentro del archivo de texto
+                {
+                    Parsear(); //funcion para parsear los archivos de texto
+                    break;
+
+                }
+            }
+        }
+
         private void buttonPruebas_Click(object sender, EventArgs e)
         {
             
@@ -393,119 +415,31 @@ namespace Codigo_Optimizado_Indec
             radioButtonDefensaCostera.Enabled = false;
             radioButtonDefensaPoblacion.Enabled = false;
 
-            StreamReader LeerLineas = File.OpenText(textBoxRutaTXT.Text);
+            LeerLineas = File.OpenText(textBoxRutaTXT.Text);
 
-            if (cuadro == 1) //if para validar en que cuadro estamos \\cuadro 1
+            switch (cuadro)
             {
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-                    
-                    if (++rt.NumeroLinea == 13) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-
-                    }
-                }
-
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-                    
-                    if (++rt.NumeroLinea == 27) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-
-                    if (++rt.NumeroLinea == 40) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-
-                rt.NumeroLinea = 0;
-            }else if (cuadro == 2) //if para validar en que cuadro estamos \\cuadro 5
-            {
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-                    
-                    if (++rt.NumeroLinea == 17) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-                    
-                    if (++rt.NumeroLinea == 40) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-                    
-                    if (++rt.NumeroLinea == 46) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-                rt.NumeroLinea = 0;
+                case 1: //cuadro 1
+                    RecorrerLinea(13);
+                    RecorrerLinea(27);
+                    RecorrerLinea(40);
+                    rt.NumeroLinea = 0;
+                    break;
+                case 2: //cuadro 2
+                    RecorrerLinea(17);
+                    RecorrerLinea(40);
+                    RecorrerLinea(46);
+                    rt.NumeroLinea = 0;
+                    break; 
+                case 3: //cuadro 3
+                    RecorrerLinea(20);
+                    RecorrerLinea(21);
+                    rt.NumeroLinea = 0;
+                    break; 
+                case 4: //cuadro 4
+                    RecorrerLinea(24);
+                    break;
             }
-            else if (cuadro == 3) //cuadro 4
-            {
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-
-                    if (++rt.NumeroLinea == 20) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-
-                    if (++rt.NumeroLinea == 21) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-                rt.NumeroLinea = 0;
-            }else if (cuadro == 4) //cuadro 3
-            {
-                while (!LeerLineas.EndOfStream) //while que recorre el cuadro por linea hasta el final del archivo
-                {
-                    rt.Linea = LeerLineas.ReadLine();
-
-                    if (++rt.NumeroLinea == 24) //if para obtener la linea especifica dentro del archivo de texto
-                    {
-                        Parsear(); //funcion para parsear los archivos de texto
-                        break;
-                    }
-                }
-            }
-
             buttonPruebas.Enabled = false;
             buttonRutaTXT.Enabled = true;
         }
@@ -514,11 +448,18 @@ namespace Codigo_Optimizado_Indec
         {
             rt.ObtenerRutaTXT(); //funcion para obtener la ruta donde se encuentran guardados los archivos de texto
 
-            textBoxRutaTXT.Text = rt.RutaArchivoTXT; //guardamos la direccion de la ruta en el textbox
+            if (string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
+            {
+                textBoxRutaTXT.Text = rt.RutaArchivoTXT; //guardamos la direccion de la ruta en el textbox
 
-            cuadro++;
-            buttonRutaTXT.Enabled = false;
-            buttonPruebas.Enabled=true;
+                cuadro++;
+                buttonRutaTXT.Enabled = false;
+                buttonPruebas.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("No selecciono ningun archivo!!!!");
+            } 
         }
 
         private void buttonExportarExcel_Click(object sender, EventArgs e) //boton para exportar los datos del datagridview al excel
@@ -553,6 +494,7 @@ namespace Codigo_Optimizado_Indec
         {
             dataGridView1.Rows.Add("Total", PonderacionTotal, "", "", "", total);
             buttonExportarExcel.Enabled = true;
+            buttonRutaTXT.Enabled = false;
         }
 
         private void radioButtonPresas_CheckedChanged(object sender, EventArgs e)
@@ -562,8 +504,15 @@ namespace Codigo_Optimizado_Indec
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NuevoCostoFinanciero = double.Parse(maskedNuevoCostoFinanciero.Text);
-            button2.Enabled = false;
+            if (!string.IsNullOrWhiteSpace(button2.Text))
+            {
+                NuevoCostoFinanciero = double.Parse(maskedNuevoCostoFinanciero.Text);
+                button2.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor!!!!");
+            }
         }
 
         private void radioButtonDefensaCostera_CheckedChanged(object sender, EventArgs e)
@@ -578,8 +527,15 @@ namespace Codigo_Optimizado_Indec
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViejoCostoFinanciero = double.Parse(maskedViejoCostoFinanciero.Text);
-            button1.Enabled = false;
+            if(!string.IsNullOrWhiteSpace(button1.Text))
+            {
+                ViejoCostoFinanciero = double.Parse(maskedViejoCostoFinanciero.Text);
+                button1.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor!!!!");
+            }
         }
     }
 }

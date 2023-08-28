@@ -304,7 +304,7 @@ namespace Codigo_Optimizado_Indec
                     switch (rt.NumeroLinea)
                     {
                         case 16:
-                            if (trozos[0] == "a)")
+                            if (trozos[0] == "a)") //pregunto si en la linea 16 existe el indice a)
                             {
                                 if (EleccionObra == 1)
                                 {
@@ -321,7 +321,7 @@ namespace Codigo_Optimizado_Indec
                             }
                             break;
                         case 17:
-                            if (trozos[0] == "a)")
+                            if (trozos[0] == "a)") //pregunto si en la linea 17 existe el indice a)
                             {
                                 if (EleccionObra == 1)
                                 {
@@ -338,7 +338,7 @@ namespace Codigo_Optimizado_Indec
                             }
                             break;
                         case 39:
-                            if (trozos[0] == "p)")
+                            if (trozos[0] == "p)") //pregunto si en la linea 39 existe el indice p)
                             {
                                 if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
                                 {
@@ -351,7 +351,7 @@ namespace Codigo_Optimizado_Indec
                             }
                             break;
                         case 40:
-                            if (trozos[0] == "p)")
+                            if (trozos[0] == "p)") //pregunto si en la linea 40 existe el indice p)
                             {
                                 if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
                                 {
@@ -364,7 +364,7 @@ namespace Codigo_Optimizado_Indec
                             }
                             break;
                         case 45:
-                            if (trozos[0] == "s)")
+                            if (trozos[0] == "s)") //pregunto si en la linea 39 existe el indice s)
                             {
                                 if (EleccionObra == 1)
                                 {
@@ -381,7 +381,7 @@ namespace Codigo_Optimizado_Indec
                             }
                             break;
                         case 46:
-                            if (trozos[0] == "s)")
+                            if (trozos[0] == "s)") //pregunto si en la linea 39 existe el indice s)
                             {
                                 if (EleccionObra == 1)
                                 {

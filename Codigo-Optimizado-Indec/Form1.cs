@@ -303,44 +303,100 @@ namespace Codigo_Optimizado_Indec
                 case 2: //cuadro 5
                     switch (rt.NumeroLinea)
                     {
+                        case 16:
+                            if (trozos[0] == "a)")
+                            {
+                                if (EleccionObra == 1)
+                                {
+                                    RestoDeLosCuadros(0.24, 16, 15, EItems.Mano_de_Obra);
+                                }
+                                else if (EleccionObra == 2 || EleccionObra == 4 || EleccionObra == 5)
+                                {
+                                    RestoDeLosCuadros(0.20, 16, 15, EItems.Mano_de_Obra);
+                                }
+                                else if (EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.30, 16, 15, EItems.Mano_de_Obra);
+                                }
+                            }
+                            break;
                         case 17:
-                            if (EleccionObra == 1)
+                            if (trozos[0] == "a)")
                             {
-                                RestoDeLosCuadros(0.24, 16, 15, EItems.Mano_de_Obra);
+                                if (EleccionObra == 1)
+                                {
+                                    RestoDeLosCuadros(0.24, 16, 15, EItems.Mano_de_Obra);
+                                }
+                                else if (EleccionObra == 2 || EleccionObra == 4 || EleccionObra == 5)
+                                {
+                                    RestoDeLosCuadros(0.20, 16, 15, EItems.Mano_de_Obra);
+                                }
+                                else if (EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.30, 16, 15, EItems.Mano_de_Obra);
+                                }
                             }
-                            else if (EleccionObra == 2 || EleccionObra == 4 || EleccionObra == 5)
+                            break;
+                        case 39:
+                            if (trozos[0] == "p)")
                             {
-                                RestoDeLosCuadros(0.20, 16, 15, EItems.Mano_de_Obra);
-                            }
-                            else if (EleccionObra == 3)
-                            {
-                                RestoDeLosCuadros(0.30, 16, 15, EItems.Mano_de_Obra);
+                                if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.08, 16, 15, EItems.Gasto_General);
+                                }
+                                else if (EleccionObra == 4 || EleccionObra == 5)
+                                {
+                                    RestoDeLosCuadros(0.15, 16, 15, EItems.Gasto_General);
+                                }
                             }
                             break;
                         case 40:
-                            if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
+                            if (trozos[0] == "p)")
                             {
-                                RestoDeLosCuadros(0.08, 16, 15, EItems.Gasto_General);
+                                if (EleccionObra == 1 || EleccionObra == 2 || EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.08, 16, 15, EItems.Gasto_General);
+                                }
+                                else if (EleccionObra == 4 || EleccionObra == 5)
+                                {
+                                    RestoDeLosCuadros(0.15, 16, 15, EItems.Gasto_General);
+                                }
                             }
-                            else if (EleccionObra == 4 || EleccionObra == 5)
+                            break;
+                        case 45:
+                            if (trozos[0] == "s)")
                             {
-                                RestoDeLosCuadros(0.15, 16, 15, EItems.Gasto_General);
+                                if (EleccionObra == 1)
+                                {
+                                    RestoDeLosCuadros(0.30, 16, 15, EItems.Hormigon);
+                                }
+                                else if (EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.22, 16, 15, EItems.Hormigon);
+                                }
+                                else if (EleccionObra == 4)
+                                {
+                                    RestoDeLosCuadros(0.12, 16, 15, EItems.Hormigon);
+                                }
                             }
                             break;
                         case 46:
-                            if (EleccionObra == 1)
+                            if (trozos[0] == "s)")
                             {
-                                RestoDeLosCuadros(0.30, 16, 15, EItems.Hormigon);
+                                if (EleccionObra == 1)
+                                {
+                                    RestoDeLosCuadros(0.30, 16, 15, EItems.Hormigon);
+                                }
+                                else if (EleccionObra == 3)
+                                {
+                                    RestoDeLosCuadros(0.22, 16, 15, EItems.Hormigon);
+                                }
+                                else if (EleccionObra == 4)
+                                {
+                                    RestoDeLosCuadros(0.12, 16, 15, EItems.Hormigon);
+                                }
                             }
-                            else if (EleccionObra == 3)
-                            {
-                                RestoDeLosCuadros(0.22, 16, 15, EItems.Hormigon);
-                            }
-                            else if (EleccionObra == 4)
-                            {
-                                RestoDeLosCuadros(0.12, 16, 15, EItems.Hormigon);
-                            }
-                        break;
+                            break;
                     }
                     break;
                 case 3: //cuadro 4
@@ -424,18 +480,21 @@ namespace Codigo_Optimizado_Indec
                     RecorrerLinea(40);
                     rt.NumeroLinea = 0;
                     break;
-                case 2: //cuadro 2
+                case 2: //cuadro 5
+                    RecorrerLinea(16);
                     RecorrerLinea(17);
+                    RecorrerLinea(39);
                     RecorrerLinea(40);
+                    RecorrerLinea(45);
                     RecorrerLinea(46);
                     rt.NumeroLinea = 0;
                     break; 
-                case 3: //cuadro 3
+                case 3: //cuadro 4
                     RecorrerLinea(20);
                     RecorrerLinea(21);
                     rt.NumeroLinea = 0;
                     break; 
-                case 4: //cuadro 4
+                case 4: //cuadro 3
                     RecorrerLinea(24);
                     break;
             }
@@ -448,7 +507,7 @@ namespace Codigo_Optimizado_Indec
             rt.ObtenerRutaTXT(); //funcion para obtener la ruta donde se encuentran guardados los archivos de texto
             textBoxRutaTXT.Text = rt.RutaArchivoTXT; //guardamos la direccion de la ruta en el textbox
 
-            if (string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
             {
                 
 

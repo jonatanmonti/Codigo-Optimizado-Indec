@@ -49,11 +49,10 @@ namespace Codigo_Optimizado_Indec
         private void buttonRutaPDF_Click(object sender, EventArgs e) //boton para buscar la ruta del pdf
         {
             r.ObtenerRuta(); //funcion para obtener la ruta
+            textBoxRuta.Text = r.RutaArchivo; //guardamos la direccion de la ruta en el textbox
 
-            if (!string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxRuta.Text))
             {
-                textBoxRuta.Text = r.RutaArchivo; //guardamos la direccion de la ruta en el textbox
-
                 buttonPrimeraPagina.Enabled = true;
             }
             else
@@ -447,10 +446,11 @@ namespace Codigo_Optimizado_Indec
         private void buttonRutaTXT_Click(object sender, EventArgs e) //boton para obtener la ruta del archivo de texto que queremos analizar
         {
             rt.ObtenerRutaTXT(); //funcion para obtener la ruta donde se encuentran guardados los archivos de texto
+            textBoxRutaTXT.Text = rt.RutaArchivoTXT; //guardamos la direccion de la ruta en el textbox
 
             if (string.IsNullOrWhiteSpace(textBoxRutaTXT.Text))
             {
-                textBoxRutaTXT.Text = rt.RutaArchivoTXT; //guardamos la direccion de la ruta en el textbox
+                
 
                 cuadro++;
                 buttonRutaTXT.Enabled = false;
